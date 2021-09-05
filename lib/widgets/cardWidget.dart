@@ -9,101 +9,107 @@ class CardWidget extends StatefulWidget {
 }
 
 class _CardWidgetState extends State<CardWidget> {
+  int counter = 0;
   List<bool> switches = [];
-  List<Widget> list = [];
+  List<Lists> list = [];
   bool loading = false;
   void addValue(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    int temp = counter;
+    counter++;
     list.add(
-      Row(
-        children: [
-          SizedBox(
-            height: 6,
-          ),
-          Container(
-            height: 40,
-            width: size.width * 0.3,
-            decoration: BoxDecoration(
-              boxShadow: [
-                BoxShadow(
-                  offset: Offset(0, 10),
-                  blurRadius: 3,
-                  color: Colors.grey.withOpacity(0.15),
-                ),
-              ],
-              borderRadius: BorderRadius.circular(20),
-              color: Colors.white,
+      Lists(
+        temp,
+        Row(
+          children: [
+            SizedBox(
+              height: 6,
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  DateTime.now().hour.toString() +
-                      ':' +
-                      DateTime.now().minute.toString(),
-                  style: GoogleFonts.roboto(
-                    fontSize: 14,
+            Container(
+              height: 40,
+              width: size.width * 0.3,
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    offset: Offset(0, 10),
+                    blurRadius: 3,
+                    color: Colors.grey.withOpacity(0.15),
                   ),
-                ),
-                Icon(Icons.arrow_downward),
-              ],
-            ),
-          ),
-          SizedBox(
-            width: size.width * 0.05,
-          ),
-          Container(
-            height: 40,
-            width: size.width * 0.3,
-            decoration: BoxDecoration(
-              boxShadow: [
-                BoxShadow(
-                  offset: Offset(0, 10),
-                  blurRadius: 3,
-                  color: Colors.grey.withOpacity(0.15),
-                ),
-              ],
-              borderRadius: BorderRadius.circular(20),
-              color: Colors.white,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  DateTime.now().hour.toString() +
-                      ':' +
-                      DateTime.now().minute.toString(),
-                  style: GoogleFonts.roboto(
-                    fontSize: 14,
+                ],
+                borderRadius: BorderRadius.circular(20),
+                color: Colors.white,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    DateTime.now().hour.toString() +
+                        ':' +
+                        DateTime.now().minute.toString(),
+                    style: GoogleFonts.roboto(
+                      fontSize: 14,
+                    ),
                   ),
-                ),
-                Icon(Icons.arrow_downward),
-              ],
+                  Icon(Icons.arrow_downward),
+                ],
+              ),
             ),
-          ),
-          SizedBox(
-            width: size.width * 0.1,
-          ),
-          InkWell(
-            onTap: () {},
-            child: Image.asset(
-              'assets/crossIcon.png',
+            SizedBox(
+              width: size.width * 0.05,
             ),
-          ),
-          SizedBox(
-            width: 10,
-          ),
-          InkWell(
-            onTap: () {
-              setState(() {
-                addValue(context);
-              });
-            },
-            child: Image.asset(
-              'assets/plusSign2.png',
+            Container(
+              height: 40,
+              width: size.width * 0.3,
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    offset: Offset(0, 10),
+                    blurRadius: 3,
+                    color: Colors.grey.withOpacity(0.15),
+                  ),
+                ],
+                borderRadius: BorderRadius.circular(20),
+                color: Colors.white,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    DateTime.now().hour.toString() +
+                        ':' +
+                        DateTime.now().minute.toString(),
+                    style: GoogleFonts.roboto(
+                      fontSize: 14,
+                    ),
+                  ),
+                  Icon(Icons.arrow_downward),
+                ],
+              ),
             ),
-          ),
-        ],
+            SizedBox(
+              width: size.width * 0.1,
+            ),
+            InkWell(
+              onTap: () {},
+              child: Image.asset(
+                'assets/crossIcon.png',
+              ),
+            ),
+            SizedBox(
+              width: 10,
+            ),
+            InkWell(
+              onTap: () {
+                setState(() {
+                  addValue(context);
+                });
+              },
+              child: Image.asset(
+                'assets/plusSign2.png',
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -202,7 +208,7 @@ class _CardWidgetState extends State<CardWidget> {
                           children: list
                               .map((e) => Padding(
                                     padding: const EdgeInsets.all(3.0),
-                                    child: e,
+                                    child: e.wid,
                                   ))
                               .toList(),
                         ),
@@ -217,4 +223,10 @@ class _CardWidgetState extends State<CardWidget> {
             ),
           );
   }
+}
+
+class Lists {
+  int index;
+  Widget wid;
+  Lists(this.index, this.wid);
 }
