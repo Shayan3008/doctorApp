@@ -1,5 +1,7 @@
 # doctor_app
 
+Most of my Ui learnigs are applied in this project such as video player and animation
+
 A new Flutter project.
 
 ## Getting Started
