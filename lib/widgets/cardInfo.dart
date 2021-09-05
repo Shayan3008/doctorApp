@@ -37,7 +37,7 @@ class CardInfo extends StatelessWidget {
                 children: [
                   Image.asset(
                     imagePath,
-                    scale: 0.6,
+                    scale: 1.8,
                   ),
                   Text(
                     text2,

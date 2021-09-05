@@ -57,11 +57,11 @@ class _ChatScreenState extends State<ChatScreen> {
         child: Column(
           children: [
             Container(
-              height: MediaQuery.of(context).size.height * 0.06,
+              height: MediaQuery.of(context).size.height * 0.05,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20), color: Colors.white),
               child: Padding(
-                padding: const EdgeInsets.all(5.0),
+                padding: const EdgeInsets.all(2.0),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -74,7 +74,7 @@ class _ChatScreenState extends State<ChatScreen> {
                           enabledBorder: InputBorder.none,
                           errorBorder: InputBorder.none,
                           disabledBorder: InputBorder.none,
-                          hintText: 'Search clinic',
+                          hintText: 'Search chat',
                         ),
                       ),
                     ),
@@ -102,52 +102,72 @@ class _ChatScreenState extends State<ChatScreen> {
                             ],
                             borderRadius: BorderRadius.circular(32),
                           ),
-                          child: Card(
-                            child: Container(
-                              margin: EdgeInsets.only(top: 4, bottom: 5),
-                              child: Row(
-                                children: [
-                                  Expanded(
-                                    child: ListTile(
-                                      onTap: () {
-                                        Navigator.of(context).push(
-                                            MaterialPageRoute(
-                                                builder: (ctx) =>
-                                                    Chat(user[index].name)));
-                                      },
-                                      leading: CircleAvatar(
-                                        radius: 26,
-                                        backgroundColor: HexColor('#0BB556F'),
-                                        child:
-                                            Image.asset('assets/profile1.png'),
-                                      ),
-                                      title: Column(
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (ctx) => Chat(user[index].name)));
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.all(1.0),
+                              child: Card(
+                                child: Container(
+                                  margin: EdgeInsets.only(top: 4, bottom: 5),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Row(
                                         children: [
-                                          Text(
-                                            user[index].name,
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.bold),
+                                          CircleAvatar(
+                                            radius: 26,
+                                            backgroundColor:
+                                                HexColor('#0BB556F'),
+                                            child: Image.asset(
+                                                'assets/profile1.png'),
                                           ),
-                                          Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: Row(
-                                              children: [
-                                                Icon(
-                                                  Icons.check,
-                                                  color: Colors.grey
-                                                      .withOpacity(0.9),
-                                                  size: 18,
+                                          SizedBox(
+                                            width: 10,
+                                          ),
+                                          Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Center(
+                                                child: Text(
+                                                  user[index].name,
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.bold),
                                                 ),
-                                                Container(
-                                                    width: 120,
-                                                    child: Text(
-                                                        user[index].status)),
-                                              ],
-                                            ),
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Icon(
+                                                    Icons.check,
+                                                    color: Colors.grey
+                                                        .withOpacity(0.9),
+                                                    size: 18,
+                                                  ),
+                                                  SizedBox(
+                                                    width: 5,
+                                                  ),
+                                                  Container(
+                                                      width:
+                                                          MediaQuery.of(context)
+                                                                  .size
+                                                                  .width *
+                                                              0.5,
+                                                      child: Text(
+                                                          user[index].status)),
+                                                ],
+                                              ),
+                                            ],
                                           ),
                                         ],
                                       ),
-                                      trailing: Column(
+                                      Column(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
@@ -186,9 +206,9 @@ class _ChatScreenState extends State<ChatScreen> {
                                           ),
                                         ],
                                       ),
-                                    ),
-                                  )
-                                ],
+                                    ],
+                                  ),
+                                ),
                               ),
                             ),
                           ),

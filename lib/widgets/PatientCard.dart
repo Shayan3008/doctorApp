@@ -160,7 +160,10 @@ class PatientCard extends StatelessWidget {
                     Container(
                       child: Row(
                         children: [
-                          Image.asset('assets/icon1.png'),
+                          Image.asset(
+                            'assets/icon1.png',
+                            scale: 1.8,
+                          ),
                           Text(
                             p.paymentMethod,
                             style: TextStyle(color: HexColor('#0B556F')),

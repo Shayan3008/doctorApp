@@ -84,8 +84,11 @@ class _CardWidgetState extends State<CardWidget> {
           SizedBox(
             width: size.width * 0.1,
           ),
-          Image.asset(
-            'assets/crossIcon.png',
+          InkWell(
+            onTap: () {},
+            child: Image.asset(
+              'assets/crossIcon.png',
+            ),
           ),
           SizedBox(
             width: 10,
