@@ -1,0 +1,26 @@
+{
+    "patient1": {
+        "name": "Aqib Khan",
+        "gender": "male",
+        "age": "20",
+        "description": "i have fever",
+        "payment": "online",
+        "status": ""
+    },
+    "patient2": {
+        "name": "Aqib Khan",
+        "gender": "male",
+        "age": "20",
+        "description": "i have fever",
+        "payment": "online",
+        "status": ""
+    },
+    "patient3": {
+        "name": "Aqib Khan",
+        "gender": "male",
+        "age": "20",
+        "description": "i have fever",
+        "payment": "online",
+        "status": ""
+    }
+}
